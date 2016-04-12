@@ -63,7 +63,7 @@
 			if ($dataUser === FALSE) {
 				
 				// L'ID devient celui du visiteur
-				$dataUser["id"] = 1;
+				$dataUser["id_utilisateur"] = 1;
 			}
 			
 			// Chargement des librairies
@@ -102,7 +102,7 @@
 		 */
 		public function getDataUtilisateurById($id){
 	 		 $this->db->select("*")
-			 		  ->where('id', $id);
+			 		  ->where('id_utilisateur', $id);
 			 
 			 $resultat = $this->db->get($this->table);
 			 

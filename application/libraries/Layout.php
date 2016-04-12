@@ -67,47 +67,18 @@ class Layout
 		if($this->racine == "admin"){
 			
 			// Ajout des ressources JAVASCRIPT
-			$this->ajouter_js("lib/jquery/dist/jquery.min");
-			$this->ajouter_js("lib/jquery-pjax/jquery.pjax");
-			$this->ajouter_js("lib/bootstrap-sass-official/assets/javascripts/bootstrap");
-			$this->ajouter_js("lib/widgster/widgster");
-			$this->ajouter_js("lib/underscore/underscore");
-			$this->ajouter_js("app");
-			$this->ajouter_js("settings");
-			$this->ajouter_js("lib/slimScroll/jquery.slimscroll.min");
-			$this->ajouter_js("lib/jquery.sparkline/index");
-			$this->ajouter_js("lib/backbone/backbone");
-			$this->ajouter_js("lib/backbone.localStorage/backbone.localStorage-min");
-			$this->ajouter_js("lib/d3/d3.min");
-			$this->ajouter_js("lib/nvd3/nv.d3.min");
-			$this->ajouter_js("index");
-			$this->ajouter_js("chat");
+			// $this->ajouter_js("jquery-2.1.1.min");
+			// $this->ajouter_js("lib/jquery-pjax/jquery.pjax");
 		// Si le contrôleur appelé n'est pas ADMIN'
 		} else {
 			
 			// Ajout des ressources CSS
-			$this->ajouter_css("semantic.min");
-			$this->ajouter_css("royalslider");
-			$this->ajouter_css("rs-default");
-			$this->ajouter_css("music-player");
-			$this->ajouter_css("owl.carousel");
-			$this->ajouter_css("magnific-popup");
-			$this->ajouter_css("style");
+			$this->ajouter_css("materialize.min");
+            $this->ajouter_css("global");
 			
 			// Ajout des ressources JAVASCRIPT
-			$this->ajouter_js("libs/semantic.min");
-			$this->ajouter_js("libs/fitvids.min");
-			$this->ajouter_js("libs/jquery.plugin.min");
-			$this->ajouter_js("libs/jquery.countdown.min");
-			$this->ajouter_js("libs/jquery.royalslider.min");
-			$this->ajouter_js("libs/jquery.easing-1.3");
-			$this->ajouter_js("libs/jquery.jplayer");
-			$this->ajouter_js("libs/ttw-music-player");
-			$this->ajouter_js("libs/owl.carousel.min");
-			$this->ajouter_js("libs/jquery.magnific-popup.min");
-			$this->ajouter_js("libs/jquery.imagesloaded.min");
-			$this->ajouter_js("libs/isotope.pkgd.min");
-			$this->ajouter_js("global");
+			$this->ajouter_js("jquery-2.1.1.min");
+            $this->ajouter_js("materialize.min");
 		}
 	}
 	

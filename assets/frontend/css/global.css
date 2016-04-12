@@ -1,0 +1,48 @@
+#left-navbar ul li {
+    height: 48px;
+    line-height: 50px!important;
+    cursor: pointer;
+    display: inherit;
+}
+#left-navbar ul li:hover{
+    line-height: 47px;
+}
+#left-navbar ul li a i{
+    line-height: 47px;
+    margin-left: 10px;
+}
+#left-navbar{
+    background-color: #ffb74d;
+    height: 100vh;
+}
+#left-navbar ul li:hover {
+    animation-duration: 0.8s;
+    animation-name: hover-left-sidebar;
+    animation-fill-mode: forwards;
+}
+
+@keyframes hover-left-sidebar {
+    from {
+        background-color: #ffb74d;
+    }
+    
+    to {
+        background-color: #ffcc80;
+    }
+}
+#left-navbar ul li a{
+    color:white;
+    display:block;
+}
+#left-navbar ul{
+    margin: 0;
+}
+#left-sidebar-row > .col{
+    padding: 0!important;
+}
+.row{
+    margin-bottom: 0px!important;
+}
+footer.page-footer {
+    margin-top: 0px;
+}

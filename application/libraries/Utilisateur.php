@@ -39,23 +39,18 @@ class Utilisateur extends CI_Controller
         
         $dataUser = $CI->utilisateurs_model->getDataUtilisateurById($id);
         
-        $this->id = (int)$dataUser["id"];
-        $this->nom = $dataUser["nom"];
-        $this->prenom = $dataUser["prenom"];
-        $this->adresse_postale = $dataUser["adresse_postale"];
-        $this->code_postal = $dataUser["code_postal"];
-        $this->ville = $dataUser["ville"];
-        $this->adresse_email = $dataUser["adresse_email"];
-        $this->adresse_ip_derniere_connexion = $dataUser["adresse_ip_derniere_connexion"];
-        $this->date_inscription = $dataUser["date_inscription"];
-        $this->newsletter = $dataUser["newsletter"];
-        $this->type_abonnement = $dataUser["type_abonnement"];
-        $this->date_souscription = $dataUser["date_souscription"];
-        $this->droits_compte = $dataUser["droits_compte"];
-        $this->statut_compte = $dataUser["statut_compte"];
-        $this->token_id = $dataUser["token_id"];
-        $this->statut_compte = $dataUser["statut_compte"];
-        if($dataUser["adresse_email"] == "visiteur"){
+        $this->id = (int)$dataUser["ID_UTILISATEUR"];
+        $this->nom = $dataUser["NOM"];
+        $this->prenom = $dataUser["PRENOM"];
+        $this->adresse_postale = $dataUser["ADRESSE_POSTALE"];
+        $this->code_postal = $dataUser["CODE_POSTAL"];
+        $this->ville = $dataUser["VILLE"];
+        $this->adresse_email = $dataUser["ADRESSE_EMAIL"];
+        $this->date_inscription = $dataUser["DATE_INSCRIPTION"];
+        $this->droits_compte = $dataUser["ROLE"];
+        $this->statut_compte = $dataUser["STATUT_COMPTE"];
+        $this->token_id = $dataUser["TOKEN_ID"];
+        if($dataUser["ADRESSE_EMAIL"] == "visiteur"){
             $this->registered = FALSE;
         } else $this->registered = TRUE;
     }

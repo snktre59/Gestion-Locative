@@ -13,18 +13,18 @@ class Accueil extends CI_Controller
 		$this->load->helper('date');
 		
 		// Définition du titre de la page
-		$this->layout->set_titre("Under Shift - Site Officiel | Accueil");
+		$this->layout->set_titre("Loca'Gestion - Gérez votre contrat que vous soyez propriétaire ou locataire !");
 		
 		//Définition de la meta-description
 		$this->layout->set_meta_description("Retrouvez les dernières actualités du groupe, les prochains évènements et bien plus encore !");
 		
 		// Récupération des derniers évènements
-		$data["tableau_evenements"] = $this->evenements_model->recuperer_evenement_limit();
+		//$data["tableau_evenements"] = $this->evenements_model->recuperer_evenement_limit();
 		
 		// Récupération des dernières actualités
-		$data["tableau_actualites"] = $this->actualites_model->recuperer_actualite_limit();
+		//$data["tableau_actualites"] = $this->actualites_model->recuperer_actualite_limit();
 		
 		// Affichage du template
-		$this->layout->view('accueil/accueil', $data);
+		$this->layout->view('accueil/accueil');
 	}
 }
