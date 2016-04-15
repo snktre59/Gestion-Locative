@@ -63,7 +63,7 @@
                 </ul>
             </div>
 
-            <div class="col s10"> <!-- Note that "m8 l9" was added -->
+            <div class="col s10" id="main-container"> <!-- Note that "m8 l9" was added -->
                     <?php echo $output; ?>
             </div>
         </div>

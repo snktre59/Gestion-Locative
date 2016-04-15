@@ -67,10 +67,10 @@
 			}
 			
 			// Chargement des librairies
-			$this->load->library("utilisateur", $dataUser["id"]);
+			$this->load->library("utilisateur", $dataUser["id_utilisateur"]);
 			
 			// Création d'un nouvel utilisateur
-			$utilisateur = new Utilisateur($dataUser["id"]);
+			$utilisateur = new Utilisateur($dataUser["id_utilisateur"]);
 			
 			return $utilisateur;
 		}

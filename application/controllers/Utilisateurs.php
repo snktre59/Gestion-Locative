@@ -10,6 +10,8 @@ class Utilisateurs extends CI_Controller {
 		
 		// Chargement des modèles
 		$this->load->model("utilisateurs_model");
+		
+		$this->layout->ajouter_js('utilisateurs/connexion');
 	 
 	 	// Définition des règles de champs
 		$this->form_validation->set_rules('adresse_email', '"Adresse Email"', 'trim|required|encode_php_tags');

@@ -64,8 +64,8 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
+	'hostname' => '91.121.109.27',
+	'username' => 'remote',
 	'password' => 'Hommerroquet59',
 	'database' => 'gestion_locative',
 	'dbdriver' => 'mysqli',

@@ -16,7 +16,7 @@
     height: 100vh;
 }
 #left-navbar ul li:hover {
-    animation-duration: 0.8s;
+    animation-duration: 0.4s;
     animation-name: hover-left-sidebar;
     animation-fill-mode: forwards;
 }
@@ -38,11 +38,15 @@
     margin: 0;
 }
 #left-sidebar-row > .col{
-    padding: 0!important;
+    padding: 0;
 }
 .row{
     margin-bottom: 0px!important;
 }
 footer.page-footer {
     margin-top: 0px;
+}
+
+#main-container {
+    padding: 15!important;  
 }
