@@ -1,96 +1,97 @@
-<div class="col m6">
-<h2 class="center-align">Connexion</h2>
-<div class="row">
-	<form class="col s12">
-		<div class="input-field col s12">
-			<i class="material-icons prefix">email</i>
-			<input id="icon_prefix" type="text" class="validate" placeholder="Entrez votre adresse email">
-			<label for="icon_prefix">Adresse email :</label>
-		</div><br />
-		<div class="input-field col s12">
-			<i class="material-icons prefix">vpn_key</i>
-			<input id="icon_telephone" type="password" class="validate" placeholder="Entrez votre mot de passe"	>
-			<label for="icon_telephone">Mot de passe :</label>
-		</div>
-		<div class="input-field col s12">
-			<i class="material-icons prefix">work</i>
-			<select>
-				<option value="" disabled selected>Je suis...</option>
-				<option value="PROPRIETAIRE">Je suis propriétaire</option>
-				<option value="LOCATAIRE">Je suis locataire</option>
-			</select>
-			<!--<label>Materialize Select</label>-->
-		</div>
-		<div class="row">
-			<div class="col s12">
-				<p>
-					<input type="checkbox" id="remember">
-					<label for="remember">Se souvenir de moi</label>
-				</p>
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class="col m12">
-				<p class="right-align">
-					<button class="btn btn-large waves-effect waves-light" type="button" name="action">Connexion</button>
-				</p>
-			</div>
-		</div>
-	</form>
-</div>
-</div>
+<html lang="fr">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="description" content="Materialize is a Material Design Admin Template,It's modern, responsive and based on Material Design by Google. ">
+  <meta name="keywords" content="materialize, admin template, dashboard template, flat admin template, responsive admin template,">
+  <title>Loca'Gestion | Connexion</title>
 
-<!--
-<div id="primary" class="content-area">
+  <!-- Favicons-->
+  <link rel="icon" href="images/favicon/favicon-32x32.png" sizes="32x32">
+  <!-- Favicons-->
+  <link rel="apple-touch-icon-precomposed" href="images/favicon/apple-touch-icon-152x152.png">
+  <!-- For iPhone -->
+  <meta name="msapplication-TileColor" content="#00bcd4">
+  <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
+  <!-- For Windows Phone -->
 
-	<header class="page-header">
-		<h1 class="page-title">Connexion</h1>
-	</header>
 
-	<div class="entry-content">
-		<h4>Connectez-vous à votre espace !</h4>
-		<p>Utilisez ce formulaire pour vous connecter et avoir accès à votre espace personnel.</p>
-		
-		<?php if($this->session->flashdata('erreur')){ ?>
-			<div class="ui red inverted segment">
-        		<p><?php echo $this->session->flashdata('erreur'); ?></p>
-        	</div>
-		<?php } ?>
+  <!-- CORE CSS-->
+  
+  <link href="<?php echo base_url(); ?>assets/frontend/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+  <link href="<?php echo base_url(); ?>assets/frontend/css/global.css" type="text/css" rel="stylesheet" media="screen,projection">
+  
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+   <!-- Custome CSS-->    
+   <link href="<?php echo base_url(); ?>assets/frontend/css/login_register.css" type="text/css" rel="stylesheet" media="screen,projection">
+</head>
 
-		
-							
-		<?php $attributs = array('id' => 'formulaireConnexion', 'class' => 'form-horizontal form-label-left'/*, 'onsubmit' => 'return ajouter_evenement()'*/); ?>
-		<?php echo form_open("utilisateurs/connexion", $attributs); ?>
+<body class="cyan loaded">
+  <!-- Start Page Loading -->
+  <div id="loader-wrapper">
+      <div id="loader"></div>        
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+  </div>
+  
+  <!-- End Page Loading -->
+  <div id="login-page" class="row">
+    <div class="col s12 z-depth-4 card-panel">
+      <form class="login-form">
+        <div class="row">
+          <div class="input-field col s12 center">
+            <img src="images/login-logo.png" alt="" class="circle responsive-img valign profile-image-login">
+            <p class="center login-form-text">Connexion à votre espace</p>
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">perm_identity</i>
+            <input id="username" type="text">
+            <label for="username" class="center-align">Adresse email</label>
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">lock_outline</i>
+            <input id="password" type="password">
+            <label for="password">Mot de passe</label>
+          </div>
+        </div>
+        <div class="row">          
+          <div class="input-field col s12 m12 l12  login-text">
+              <input type="checkbox" id="remember-me">
+              <label for="remember-me">Se souvenir de moi</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <a href="index.html" class="btn waves-effect waves-light col s12">Connexion</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6 m6 l6">
+            <p class="margin medium-small"><a href="page-register.html">Inscrivez-vous !</a></p>
+          </div>
+          <div class="input-field col s6 m6 l6">
+              <p class="margin right-align medium-small"><a href="page-forgot-password.html">Mot de passe oublié ?</a></p>
+          </div>          
+        </div>
 
-			<div class="form-row field_text">
-				<label for="adresse_email">Adresse email <em>(requis)</em></label>
-				<div class="col-sm-4">
-					<input type="text" id="adresse_email" name="adresse_email" value="" required="required">
-				</div>
-			</div>
+      </form>
+    </div>
+  </div>
 
-			<div class="form-row field_text">
-				<label for="mot_de_passe">Mot de passe <em>(requis)</em></label>
-				<div class="col-sm-4">
-					<input type="password" id="mot_de_passe" name="mot_de_passe" required="required">
-				</div>
-			</div>
 
-			<div class="form-row field_text">
-				<div class="col-sm-4">
-					<label for="remember">Se souvenir de moi</label>
-					<input type="checkbox" id="remember" name="remember" value="on">
-				</div>
-			</div>
 
-			<div class="form-row field_submit">
-				<input type="submit" id="_submit" name="_submit" class="ui button colored" value="Connexion">
-			</div>
-		<?php echo form_close(); ?>
-		<div>
-			Déjà inscrit ?&nbsp;&nbsp;<a href="/register/" class="ui inverted orange button">Inscription</a>
-		</div>
-	</div>
+  <!-- ================================================
+    Scripts
+    ================================================ -->
 
-</div> <!-- END #primary -->
+  <!-- jQuery Library -->
+  <script type="text/javascript" src="<?php echo base_url(); ?>assets/frontend/javascript/jquery-2.1.1.min.js"></script>
+  <!--materialize js-->
+  <script type="text/javascript" src="<?php echo base_url(); ?>assets/frontend/javascript/materialize.min.js"></script>

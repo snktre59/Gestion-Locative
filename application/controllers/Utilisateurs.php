@@ -85,7 +85,7 @@ class Utilisateurs extends CI_Controller {
 		}
 		else
 		{
-			$this->layout->view('utilisateurs/connexion');
+			$this->load->view('utilisateurs/connexion');
 		}
 	}
 
@@ -172,7 +172,7 @@ class Utilisateurs extends CI_Controller {
 		else
 		{
 			// Affichage
-			$this->layout->view('utilisateurs/inscription');
+			$this->load->view('utilisateurs/inscription');
 		}
 	}
 	
