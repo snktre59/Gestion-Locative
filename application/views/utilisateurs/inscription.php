@@ -115,3 +115,46 @@
 	</div>
 
 </div> <!-- END #primary -->
+
+<div id="card-alert" class="card light-blue">
+                      <div class="card-content white-text">
+                        <p>NEWS : You have done 5 actions.</p>
+                      </div>
+                    </div>
+<div class="col m6">
+<h2 class="center-align">Inscription</h2>
+<div class="row">
+	<form class="col s12">
+		<div class="input-field col s12">
+			<input id="icon_prefix" type="text" class="validate" placeholder="Entrez votre nom">
+			<label for="icon_prefix">Nom : (Requis)</label>
+		</div><br />
+		<div class="input-field col s12">
+			<input id="icon_prefix" type="text" class="validate" placeholder="Entrez votre prénom">
+			<label for="icon_prefix">Prénom (Requis) :</label>
+		</div><br />
+		<div class="input-field col s12">
+			<i class="material-icons prefix">vpn_key</i>
+			<input id="icon_telephone" type="password" class="validate" placeholder="Entrez votre mot de passe"	>
+			<label for="icon_telephone">Mot de passe :</label>
+		</div>
+		<div class="input-field col s12">
+			<i class="material-icons prefix">work</i>
+			<select>
+				<option value="" disabled selected>Je suis...</option>
+				<option value="PROPRIETAIRE">Je suis propriétaire</option>
+				<option value="LOCATAIRE">Je suis locataire</option>
+			</select>
+			<!--<label>Materialize Select</label>-->
+		</div>
+		
+		<div class="row">
+			<div class="col m12">
+				<p class="right-align">
+					<button class="btn btn-large waves-effect waves-light" type="button" name="action">Inscription</button>
+				</p>
+			</div>
+		</div>
+	</form>
+</div>
+</div>

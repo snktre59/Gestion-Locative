@@ -61,11 +61,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $active_group = 'default';
 $query_builder = TRUE;
-
+/* PROD */ /*
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => '91.121.109.27',
 	'username' => 'remote',
+	'password' => 'Hommerroquet59',
+	'database' => 'gestion_locative',
+	'dbdriver' => 'mysqli',
+	'dbprefix' => '',
+	'pconnect' => FALSE,
+	'db_debug' => TRUE,
+	'cache_on' => FALSE,
+	'cachedir' => '',
+	'char_set' => 'utf8',
+	'dbcollat' => 'utf8_general_ci',
+	'swap_pre' => '',
+	'encrypt' => FALSE,
+	'compress' => FALSE,
+	'stricton' => FALSE,
+	'failover' => array(),
+	'save_queries' => TRUE
+);*/
+
+/* DEV */ 
+$db['default'] = array(
+	'dsn'	=> '',
+	'hostname' => 'localhost',
+	'username' => 'root',
 	'password' => 'Hommerroquet59',
 	'database' => 'gestion_locative',
 	'dbdriver' => 'mysqli',

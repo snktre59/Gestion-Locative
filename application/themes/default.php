@@ -39,9 +39,9 @@
             <div class="nav-wrapper">
                 <a href="<?php echo base_url(); ?>" class="brand-logo">Loca'Gestion</a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="sass.html"><i class="material-icons left">store</i>Accueil</a></li>
-                    <li><a href="badges.html"><i class="material-icons left">work</i>Espace Propriétaire</a></li>
-                    <li><a href="collapsible.html"><i class="material-icons left">vpn_key</i>Espace Locataire</a></li>
+                    <li><a href="<?php echo base_url(); ?>"><i class="material-icons left">store</i>Accueil</a></li>
+                    <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">work</i>Espace Propriétaire</a></li>
+                    <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i>Espace Locataire</a></li>
                 </ul>
                 <ul id="slide-out" class="side-nav">
                     <li><a href="sass.html"><i class="material-icons left">store</i>Accueil</a></li>
@@ -57,9 +57,9 @@
 
             <div id="left-navbar" class="col s2"> <!-- Note that "m4 l3" was added -->
                 <ul>
-                    <li class="waves-effect waves-light"><a href="sass.html"><span><i class="material-icons left">store</i><span>Accueil</a></li>
-                    <li class="waves-effect waves-light"><a href="badges.html"><i class="material-icons left">work</i>Espace Propriétaire</a></li>
-                    <li class="waves-effect waves-light"><a href="collapsible.html"><i class="material-icons left">vpn_key</i>Espace Locataire</a></li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url(); ?>"><span><i class="material-icons left">store</i><span>Accueil</a></li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">work</i>Espace Propriétaire</a></li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i>Espace Locataire</a></li>
                 </ul>
             </div>
 

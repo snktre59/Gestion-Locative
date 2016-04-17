@@ -9,7 +9,7 @@
 		</div><br />
 		<div class="input-field col s12">
 			<i class="material-icons prefix">vpn_key</i>
-			<input id="icon_telephone" type="password" class="validate" placeholder="Entrez votre mot de passe">
+			<input id="icon_telephone" type="password" class="validate" placeholder="Entrez votre mot de passe"	>
 			<label for="icon_telephone">Mot de passe :</label>
 		</div>
 		<div class="input-field col s12">
