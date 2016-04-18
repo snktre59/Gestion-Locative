@@ -36,7 +36,7 @@
       <div class="loader-section section-left"></div>
       <div class="loader-section section-right"></div>
   </div>
-  
+
   <!-- End Page Loading -->
   <div id="login-page" class="row">
     <div class="col s12 z-depth-4 card-panel">
@@ -51,6 +51,20 @@
           <div class="input-field col s12">
             <i class="material-icons prefix">perm_identity</i>
             <input id="username" type="text">
+            <label for="username" class="center-align">Nom</label>
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">perm_identity</i>
+            <input id="username" type="text">
+            <label for="username" class="center-align">Prénom</label>
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">email</i>
+            <input id="username" type="text">
             <label for="username" class="center-align">Adresse email</label>
           </div>
         </div>
@@ -61,10 +75,18 @@
             <label for="password">Mot de passe</label>
           </div>
         </div>
-        <div class="row">          
-          <div class="input-field col s12 m12 l12  login-text">
-              <input type="checkbox" id="remember-me">
-              <label for="remember-me">Se souvenir de moi</label>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">lock_outline</i>
+            <input id="password" type="password">
+            <label for="password">Mot de passe (Confirmation)</label>
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">lock_outline</i>
+            <input id="adresse" name="adresse" type="text" placeholder="Indiquez un lieu">
+            <label for="adresse">Adresse</label>
           </div>
         </div>
         <div class="row">
@@ -95,3 +117,15 @@
   <script type="text/javascript" src="<?php echo base_url(); ?>assets/frontend/javascript/jquery-2.1.1.min.js"></script>
   <!--materialize js-->
   <script type="text/javascript" src="<?php echo base_url(); ?>assets/frontend/javascript/materialize.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+    <script type="text/javascript">
+    function initialize() {
+        var input = document.getElementById('adresse');
+        var options = {componentRestrictions: {country: 'fr'}};
+                    
+        new google.maps.places.Autocomplete(input, options);
+    }
+              
+  google.maps.event.addDomListener(window, 'load', initialize);
+  //$(#adresse).attr("placeholder", "");
+  </script>
