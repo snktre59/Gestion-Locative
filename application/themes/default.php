@@ -62,7 +62,7 @@
                     <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i>Espace Locataire</a></li>
                 </ul>
             </div>
-
+            
             <div class="col s10" id="main-container"> <!-- Note that "m8 l9" was added -->
                     <?php echo $output; ?>
             </div>

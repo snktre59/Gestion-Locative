@@ -101,22 +101,24 @@ class Utilisateurs extends CI_Controller {
 		$this->layout->ajouter_js("utilisateurs/inscription");
 		
 		// Définition du titre de la page
-		$this->layout->set_titre("Under Shift - Inscription");
+		$this->layout->set_titre("Loca' Gestion | Inscription");
 		
 		// Définition des règles de champs
-		$this->form_validation->set_rules('nom', '"Nom"', 'trim|required|encode_php_tags');
-		$this->form_validation->set_rules('prenom', '"Prénom"', 'trim|required|encode_php_tags');
-		$this->form_validation->set_rules('adresse_email', '"Adresse email"', 'trim|required|matches[adresse_email_confirm]|encode_php_tags|is_unique[utilisateurs.adresse_email]');
-		$this->form_validation->set_rules('adresse_email_confirm', '"Adresse email confirmation"', 'trim|required|encode_php_tags');
-		$this->form_validation->set_rules('mot_de_passe', '"Mot de passe"', 'trim|required|matches[mot_de_passe_confirm]|encode_php_tags');
-		$this->form_validation->set_rules('mot_de_passe_confirm', '"Mot de passe confirmation"', 'trim|required|encode_php_tags');
-		$this->form_validation->set_rules('adresse_postale', '"Adresse postale"', 'trim|required|encode_php_tags');
-		$this->form_validation->set_rules('code_postal', '"Code postal"', 'trim|required|encode_php_tags');
-		$this->form_validation->set_rules('ville', '"Ville"', 'trim|required|encode_php_tags');
+		$this->form_validation->set_rules('NOM', '"Nom"', 'trim|required|encode_php_tags');
+		$this->form_validation->set_rules('PRENOM', '"Prénom"', 'trim|required|encode_php_tags');
+		$this->form_validation->set_rules('ADRESSE_EMAIL', '"Adresse email"', 'trim|required|matches[adresse_email_confirm]|encode_php_tags|is_unique[utilisateurs.adresse_email]');
+		$this->form_validation->set_rules('ROLE', '"Rôle"', 'trim|required|encode_php_tags');
+		$this->form_validation->set_rules('MOT_DE_PASSE', '"Mot de passe"', 'trim|required|matches[mot_de_passe_confirm]|encode_php_tags');
+		$this->form_validation->set_rules('MOT_DE_PASSE_CONFIRMATION', '"Mot de passe confirmation"', 'trim|required|encode_php_tags');
+		$this->form_validation->set_rules('NUMERO_DE_TELEPHONE', '"Numéro de téléphone"', 'trim|required|encode_php_tags');
+		$this->form_validation->set_rules('CODE_POSTAL', '"Code postal"', 'trim|required|encode_php_tags');
+		$this->form_validation->set_rules('VILLE', '"Ville"', 'trim|required|encode_php_tags');
+		$this->form_validation->set_rules('ADRESSE', '"Adresse"', 'trim|required|encode_php_tags');
 		
 		// Si le formulaire est correctement renseigné
 		if($this->form_validation->run())
 		{
+			die();
 			// Récupération des variables postées
 			$nom = $this->input->post('nom');
 			$prenom = $this->input->post('prenom');

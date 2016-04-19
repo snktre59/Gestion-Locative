@@ -40,7 +40,9 @@
   <!-- End Page Loading -->
   <div id="login-page" class="row">
     <div class="col s12 z-depth-4 card-panel">
-      <form class="login-form">
+      <?php $attributs = array('id' => 'FORMULAIRE_INSCRIPTION', 'class' => 'login-form'); ?>
+        <?php echo form_open("", $attributs); ?>
+        
         <div class="row">
           <div class="input-field col s12 center">
             <a href="<?php echo base_url(); ?>"><img src="<?php echo img_url("logo.png"); ?>" alt="Logo Loca' Gestion" class="responsive-img valign profile-image-login"></a>
@@ -54,6 +56,7 @@
             <label for="NOM" class="center-align">Nom</label>
           </div>
         </div>
+        <?php echo form_error('NOM'); ?>
         <div class="row margin">
           <div class="input-field col s12">
             <i class="material-icons prefix">perm_identity</i>
@@ -103,6 +106,14 @@
             <input id="MOT_DE_PASSE_CONFIRMATION" name="MOT_DE_PASSE_CONFIRMATION" type="password">
             <label for="MOT_DE_PASSE_CONFIRMATION">Mot de passe (Confirmation)</label>
           </div>
+          <?php echo form_error('MOT_DE_PASSE_CONFIRMATION'); ?>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">call</i>
+            <input id="NUMERO_DE_TELEPHONE" name="NUMERO_DE_TELEPHONE" type="tel">
+            <label for="NUMERO_DE_TELEPHONE" class="center-align">Numéro de téléphone</label>
+          </div>
         </div>
         <div class="row">
             <div class="input-field col s1">
@@ -123,7 +134,7 @@
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <a href="index.html" class="btn waves-effect waves-light col s12">Inscription</a>
+            <button type="submit" class="btn waves-effect waves-light col s12">Inscription</button>
           </div>
         </div>
         <div class="row">
@@ -136,7 +147,7 @@
         </div>
         
 
-      </form>
+      <?php echo form_close(); ?>
     </div>
   </div>
 
