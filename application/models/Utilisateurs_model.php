@@ -84,13 +84,12 @@
 		 */
 		public function getDataUtilisateurByEmail($adresse_email){
 	 		 $this->db->select("*")
-			 		  ->where('adresse_email', $adresse_email);
+			 		  ->where('ADRESSE_EMAIL', $adresse_email);
 			 
 			 $resultat = $this->db->get($this->table);
 			 
-			 $donnees = $resultat->result_array();
-			 
-			 return ($donnees == NULL) ? FALSE : $donnees[0];
+			 $donnees = $resultat->first_row('array');
+			 return ($donnees["ADRESSE_EMAIL"] == 'visiteur') ? FALSE : $donnees;
 		}
 		
 		/*
@@ -102,13 +101,13 @@
 		 */
 		public function getDataUtilisateurById($id){
 	 		 $this->db->select("*")
-			 		  ->where('id_utilisateur', $id);
+			 		  ->where('ID_UTILISATEUR', $id);
 			 
 			 $resultat = $this->db->get($this->table);
 			 
-			 $donnees = $resultat->result_array();
+			 $donnees = $resultat->first_row('array');
 			 
-			 return ($donnees == NULL) ? FALSE : $donnees[0];
+			 return ($donnees == NULL) ? FALSE : $donnees;
 		}
 	}
 ?>

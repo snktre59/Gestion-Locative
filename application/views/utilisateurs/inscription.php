@@ -36,77 +36,109 @@
       <div class="loader-section section-left"></div>
       <div class="loader-section section-right"></div>
   </div>
-
+  
   <!-- End Page Loading -->
   <div id="login-page" class="row">
     <div class="col s12 z-depth-4 card-panel">
       <form class="login-form">
         <div class="row">
           <div class="input-field col s12 center">
-            <img src="images/login-logo.png" alt="" class="circle responsive-img valign profile-image-login">
+            <a href="<?php echo base_url(); ?>"><img src="<?php echo img_url("logo.png"); ?>" alt="Logo Loca' Gestion" class="responsive-img valign profile-image-login"></a>
             <p class="center login-form-text">Connexion à votre espace</p>
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">
             <i class="material-icons prefix">perm_identity</i>
-            <input id="username" type="text">
-            <label for="username" class="center-align">Nom</label>
+            <input id="NOM" name="NOM" type="text">
+            <label for="NOM" class="center-align">Nom</label>
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">
             <i class="material-icons prefix">perm_identity</i>
-            <input id="username" type="text">
-            <label for="username" class="center-align">Prénom</label>
+            <input id="PRENOM" name="PRENOM" type="text">
+            <label for="PRENOM" class="center-align">Prénom</label>
           </div>
+        </div>
+        <div class="input-field col s12">
+            <i class="material-icons prefix">perm_identity</i>
+            <select name="ROLE">
+                <option value="" disabled selected>Je suis...</option>
+                <option value="PROPRIETAIRE">Je suis propriétaire</option>
+                <option value="LOCATAIRE">Je suis locataire</option>
+            </select>
         </div>
         <div class="row margin">
           <div class="input-field col s12">
             <i class="material-icons prefix">email</i>
-            <input id="username" type="text">
-            <label for="username" class="center-align">Adresse email</label>
+            <input id="ADRESSE_EMAIL" name="ADRESSE_EMAIL" type="text">
+            <label for="ADRESSE_EMAIL" class="center-align">Adresse email</label>
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">
             <i class="material-icons prefix">lock_outline</i>
-            <input id="password" type="password">
-            <label for="password">Mot de passe</label>
+            <input id="pwd" name="MOT_DE_PASSE" type="password">
+            <label for="pwd">Mot de passe</label>
+            <div id="pwd_strength_wrap">
+                <div id="passwordDescription">Mot de passe non saisi</div>
+                <div id="passwordStrength" class="strength0"></div>
+                <div id="pswd_info">
+                        <strong>Astuces :</strong>
+                        <ul>
+                                <li class="invalid" id="length">Au moins 6 caractères</li>
+                                <li class="invalid" id="pnum">Au moins un nombre</li>
+                                <li class="invalid" id="capital">Au moins une lettre minuscule &amp; une lettre majuscule</li>
+                                <li class="invalid" id="spchar">Au moins un caractère spécial</li>
+                        </ul>
+                </div><!-- END pswd_info -->
+           </div><!-- END pwd_strength_wrap -->
+
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">
             <i class="material-icons prefix">lock_outline</i>
-            <input id="password" type="password">
-            <label for="password">Mot de passe (Confirmation)</label>
-          </div>
-        </div>
-        <div class="row margin">
-          <div class="input-field col s12">
-            <i class="material-icons prefix">lock_outline</i>
-            <input id="adresse" name="adresse" type="text" placeholder="Indiquez un lieu">
-            <label for="adresse">Adresse</label>
+            <input id="MOT_DE_PASSE_CONFIRMATION" name="MOT_DE_PASSE_CONFIRMATION" type="password">
+            <label for="MOT_DE_PASSE_CONFIRMATION">Mot de passe (Confirmation)</label>
           </div>
         </div>
         <div class="row">
+            <div class="input-field col s1">
+                <i class="material-icons prefix">store</i>
+            </div>
+            <div class="input-field col s5">
+                <input id="ADRESSE" name="ADRESSE" type="text">
+                <label for="ADRESSE">Adresse</label>
+            </div>
+            <div class="input-field col s3">
+                <input id="VILLE" name="VILLE" type="text">
+                <label for="VILLE">Ville</label>
+            </div>
+            <div class="input-field col s2">
+                <input id="CODE_POSTAL" name="CODE_POSTAL" type="text">
+                <label for="CODE_POSTAL">Code Postal</label>
+            </div>
+        </div>
+        <div class="row">
           <div class="input-field col s12">
-            <a href="index.html" class="btn waves-effect waves-light col s12">Connexion</a>
+            <a href="index.html" class="btn waves-effect waves-light col s12">Inscription</a>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s6 m6 l6">
-            <p class="margin medium-small"><a href="page-register.html">Inscrivez-vous !</a></p>
+            <p class="margin medium-small"><a href="<?php echo base_url(); ?>">Retour au site</a></p>
           </div>
           <div class="input-field col s6 m6 l6">
-              <p class="margin right-align medium-small"><a href="page-forgot-password.html">Mot de passe oublié ?</a></p>
-          </div>          
+              <p class="margin medium-small" style="float: right;"><a href="<?php echo base_url("utilisateurs/connexion"); ?>">Déjà un compte ? Connectez-vous !</a></p>
+          </div>  
         </div>
+        
 
       </form>
     </div>
   </div>
-
 
 
   <!-- ================================================
@@ -117,15 +149,6 @@
   <script type="text/javascript" src="<?php echo base_url(); ?>assets/frontend/javascript/jquery-2.1.1.min.js"></script>
   <!--materialize js-->
   <script type="text/javascript" src="<?php echo base_url(); ?>assets/frontend/javascript/materialize.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
-    <script type="text/javascript">
-    function initialize() {
-        var input = document.getElementById('adresse');
-        var options = {componentRestrictions: {country: 'fr'}};
-                    
-        new google.maps.places.Autocomplete(input, options);
-    }
-              
-  google.maps.event.addDomListener(window, 'load', initialize);
-  //$(#adresse).attr("placeholder", "");
-  </script>
+  <!-- Script de la page -->
+  <script type="text/javascript" src="<?php echo js_url("utilisateurs/inscription"); ?>"></script>
+  

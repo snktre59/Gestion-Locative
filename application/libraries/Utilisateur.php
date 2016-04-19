@@ -8,21 +8,19 @@ class Utilisateur extends CI_Controller
 	private $nom;
 	private $prenom;
 	private $mot_de_passe;
-	private $date_de_naissance;
 	private $adresse_postale;
 	private $code_postal;
     private $ville;
-	private $pays;
     private $adresse_email;
     private $numero_de_telephone;
     private $adresse_ip_derniere_connexion;
     private $date_inscription;
-    private $newsletter;
     private $type_abonnement;
     private $date_souscription;
-    private $droits_compte;
+    private $role;
     private $statut_compte;
     private $token_id;
+    private $registered;
 
     /*
     |===============================================================================
@@ -46,8 +44,12 @@ class Utilisateur extends CI_Controller
         $this->code_postal = $dataUser["CODE_POSTAL"];
         $this->ville = $dataUser["VILLE"];
         $this->adresse_email = $dataUser["ADRESSE_EMAIL"];
+        $this->numero_de_telephone = $dataUser["NUMERO_DE_TELEPHONE"];
+        $this->adresse_ip_derniere_connexion = $dataUser["ADRESSE_IP_DERNIERE_CONNEXION"];
         $this->date_inscription = $dataUser["DATE_INSCRIPTION"];
-        $this->droits_compte = $dataUser["ROLE"];
+        $this->type_abonnement = $dataUser["TYPE_ABONNEMENT"];
+        $this->date_souscription = $dataUser["DATE_SOUSCRIPTION"];
+        $this->role = $dataUser["ROLE"];
         $this->statut_compte = $dataUser["STATUT_COMPTE"];
         $this->token_id = $dataUser["TOKEN_ID"];
         if($dataUser["ADRESSE_EMAIL"] == "visiteur"){
@@ -169,22 +171,6 @@ class Utilisateur extends CI_Controller
     /**
      * @return mixed
      */
-    public function getDateDeNaissance()
-    {
-        return $this->date_de_naissance;
-    }
-
-    /**
-     * @param mixed $date_de_naissance
-     */
-    public function setDateDeNaissance($date_de_naissance)
-    {
-        $this->date_de_naissance = $date_de_naissance;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getAdressePostale()
     {
         return $this->adresse_postale;
@@ -212,22 +198,6 @@ class Utilisateur extends CI_Controller
     public function setCodePostal($code_postal)
     {
         $this->code_postal = $code_postal;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPays()
-    {
-        return $this->pays;
-    }
-
-    /**
-     * @param mixed $pays
-     */
-    public function setPays($pays)
-    {
-        $this->pays = $pays;
     }
 
     /**
@@ -297,22 +267,6 @@ class Utilisateur extends CI_Controller
     /**
      * @return mixed
      */
-    public function getNewsletter()
-    {
-        return $this->newsletter;
-    }
-
-    /**
-     * @param mixed $newsletter
-     */
-    public function setNewsletter($newsletter)
-    {
-        $this->newsletter = $newsletter;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getTypeAbonnement()
     {
         return $this->type_abonnement;
@@ -345,17 +299,17 @@ class Utilisateur extends CI_Controller
     /**
      * @return string
      */
-    public function getDroitsCompte()
+    public function getRole()
     {
-        return $this->droits_compte;
+        return $this->role;
     }
 
     /**
      * @param string $droits_compte
      */
-    public function setDroitsCompte($droits_compte)
+    public function setRole($role)
     {
-        $this->droits_compte = $droits_compte;
+        $this->role = $role;
     }
 
     /**

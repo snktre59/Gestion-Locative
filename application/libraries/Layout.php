@@ -23,13 +23,13 @@ class Layout
 	{
 		$this->CI =& get_instance();
 		
-		if (! $this->CI->session->userdata("utilisateurCourant")){
+		//if (! $this->CI->session->userdata("utilisateurCourant")){
 			$this->CI->load->model("utilisateurs_model");
 			
 			$this->utilisateurCourant = $this->CI->utilisateurs_model->instancier_utilisateur("visiteur");
 			
 			$this->CI->session->set_userdata("utilisateurCourant", $this->utilisateurCourant);
-		}
+		//}
 		
 		$this->utilisateurCourant = $this->CI->session->userdata("utilisateurCourant");
 		
@@ -90,6 +90,15 @@ class Layout
 		$this->var['output'] .= $this->CI->load->view($name, $data, true);
 		
 		$this->CI->load->view('../themes/' . $this->theme, $this->var);
+	}
+    
+    /*
+	 * Méthode affichant une vue sans le thème
+	 */	
+	public function blank_view($name, $data = array())
+	{
+        array_push($data, $this->var);
+		$this->CI->load->view($name, $data);
 	}
 	
 	/*

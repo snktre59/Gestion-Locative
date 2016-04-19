@@ -172,7 +172,7 @@ class Utilisateurs extends CI_Controller {
 		else
 		{
 			// Affichage
-			$this->load->view('utilisateurs/inscription');
+			$this->layout->blank_view('utilisateurs/inscription');
 		}
 	}
 	
