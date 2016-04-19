@@ -180,21 +180,16 @@ class Layout
 	 */	
 	public function set_flashdata_message($statut, $message)
 	{
-		// Si le contrôleur N'EST PAS ADMIN
-		if ($this->racine != "admin"){
-			$logo = "";	
-		} else {
 			// Définition du logo en fonction de type de message
-			if ($statut == "success"){
-				$logo = "check";
-			} elseif ($statut == "danger") {
-				$logo = "ban";
-			} elseif ($statut == "info") {
-				$logo = "info-circle";
+			if ($statut == "green"){
+				$logo = "done";
+			} elseif ($statut == "red") {
+				$logo = "error_outline";
+			} elseif ($statut == "blue") {
+				$logo = "info_outline";
 			} else {
-				$logo = "bell-o";
+				$logo = "warning";
 			}
-		}
 				
 		$this->tabMessage[] = array('statut' => $statut, 'message' => $message, 'logo' => $logo);
         $this->CI->session->set_flashdata('tabMessage', $this->tabMessage);

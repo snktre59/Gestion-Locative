@@ -90,7 +90,7 @@ class CI_Form_validation {
 	 */
 	protected $_error_prefix	= '<div id="card-alert" class="card red">
                       <div class="card-content white-text">
-                        <p><i class="material-icons prefix">error_outline</i> DANGER : The daily report has failed';
+                        <p><i class="material-icons prefix">error_outline</i>';
 
 	/**
 	 * End tag for error wrapping
@@ -99,9 +99,6 @@ class CI_Form_validation {
 	 */
 	protected $_error_suffix	= '</p>
                       </div>
-                      <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                      </button>
                     </div>';
 
 	/**

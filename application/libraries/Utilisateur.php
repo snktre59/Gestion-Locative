@@ -60,34 +60,34 @@ class Utilisateur extends CI_Controller
     /*
      * Fonction d'inscription d'un utilisateur
      */
-    public function inscrire($nom, $prenom, $date_de_naissance, $adresse_postale, $code_postal, $ville, $pays, $adresse_email,
-	$numero_de_telephone, $adresse_ip_derniere_connexion, $date_inscription, $newsletter, $type_abonnement, $date_souscription,
-	$droits_compte, $statut_compte, $token_id)
+    public function inscrire($nom, $prenom, $adresse_postale, $code_postal, $ville, $adresse_email, $numero_de_telephone, $adresse_ip_derniere_connexion, $mot_de_passe, $role, $token_id)
 	{
+         $CI =& get_instance();
+         $CI->load->model("utilisateurs_model");
         // Création du tableau contenant les informations à propos de l'utilisateur
 		$tableau_utilisateur = array(
-			"id"		=>		"",
-			"nom"		=>		$nom,
-			"prenom"	=>		$prenom,
-			"date_de_naissance"		=>		$date_de_naissance,
-			"adresse_postale"		=>		$adresse_postale,
-			"code_postal"			=>		$code_postal,
-			"ville"		=>		$ville,
-			"pays"		=>		$pays,
-			"adresse_email"		=>		$adresse_email,
-			"numero_de_telephone"	=>		$numero_de_telephone,
-			"adresse_ip_derniere_connexion"		=>		$adresse_ip_derniere_connexion,
-			"date_inscription"		=>		$date_inscription,
-			"newsletter"	=>		"1",
-			"type_abonnement"		=>		"STANDARD",
-			"date_souscription"		=>		$date_souscription,
-			"droits_compte"		=>		"UTILISATEUR",
-			"statut_compte"		=>		"INACTIF",
-			"token_id"			=>		$token_id
+			"ID_UTILISATEUR"		            =>		"",
+			"NOM"		                        =>		$nom,
+			"PRENOM"	                        =>		$prenom,
+			"ADRESSE_POSTALE"		            =>		$adresse_postale,
+			"CODE_POSTAL"			            =>		$code_postal,
+			"VILLE"		                        =>		$ville,
+			"ADRESSE_EMAIL"		                =>		$adresse_email,
+			"NUMERO_DE_TELEPHONE"		        =>		$numero_de_telephone,
+			"ADRESSE_IP_DERNIERE_CONNEXION"	    =>		$adresse_ip_derniere_connexion,
+			"MOT_DE_PASSE"		                =>		$mot_de_passe,
+            "DATE_INSCRIPTION"                  =>      "",
+			"TYPE_ABONNEMENT"		            =>		"",
+            "DATE_SOUSCRIPTION"                 =>      "",    
+			"ROLE"	                            =>		$role,
+            "STATUT_COMPTE"                     =>      "INACTIF",
+			"TOKEN_ID"		                    =>		$token_id
 		);
         
         // Insertion des données dans la table "utilisateurs"
-		$inscrire_utilisateur = $this->db->insert("utilisateurs", $tableau_utilisateur);
+		$resultat = $CI->utilisateurs_model->ajouter_utilisateur($tableau_utilisateur);
+        
+        return $resultat;
 	}
     
     public function activer_compte($adresse_email, $token_id){

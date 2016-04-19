@@ -106,36 +106,39 @@ class Utilisateurs extends CI_Controller {
 		// Définition des règles de champs
 		$this->form_validation->set_rules('NOM', '"Nom"', 'trim|required|encode_php_tags');
 		$this->form_validation->set_rules('PRENOM', '"Prénom"', 'trim|required|encode_php_tags');
-		$this->form_validation->set_rules('ADRESSE_EMAIL', '"Adresse email"', 'trim|required|matches[adresse_email_confirm]|encode_php_tags|is_unique[utilisateurs.adresse_email]');
+		$this->form_validation->set_rules('ADRESSE_EMAIL', '"Adresse email"', 'trim|required|valid_email|encode_php_tags|is_unique[utilisateurs.ADRESSE_EMAIL]');
 		$this->form_validation->set_rules('ROLE', '"Rôle"', 'trim|required|encode_php_tags');
-		$this->form_validation->set_rules('MOT_DE_PASSE', '"Mot de passe"', 'trim|required|matches[mot_de_passe_confirm]|encode_php_tags');
+		$this->form_validation->set_rules('MOT_DE_PASSE', '"Mot de passe"', 'trim|required|matches[MOT_DE_PASSE_CONFIRMATION]|encode_php_tags');
 		$this->form_validation->set_rules('MOT_DE_PASSE_CONFIRMATION', '"Mot de passe confirmation"', 'trim|required|encode_php_tags');
-		$this->form_validation->set_rules('NUMERO_DE_TELEPHONE', '"Numéro de téléphone"', 'trim|required|encode_php_tags');
-		$this->form_validation->set_rules('CODE_POSTAL', '"Code postal"', 'trim|required|encode_php_tags');
+		$this->form_validation->set_rules('NUMERO_DE_TELEPHONE', '"Numéro de téléphone"', 'trim|required|numeric|encode_php_tags');
+		$this->form_validation->set_rules('CODE_POSTAL', '"Code postal"', 'trim|numeric|exact_length[5]|required|encode_php_tags');
 		$this->form_validation->set_rules('VILLE', '"Ville"', 'trim|required|encode_php_tags');
-		$this->form_validation->set_rules('ADRESSE', '"Adresse"', 'trim|required|encode_php_tags');
+		$this->form_validation->set_rules('ADRESSE_POSTALE', '"Adresse"', 'trim|required|encode_php_tags');
 		
 		// Si le formulaire est correctement renseigné
 		if($this->form_validation->run())
-		{
-			die();
+		{	               
 			// Récupération des variables postées
-			$nom = $this->input->post('nom');
-			$prenom = $this->input->post('prenom');
-			$adresse_email = $this->input->post('adresse_email');
-			//$adresse_email_confirm = $this->input->post('adresse_email_confirm');
-			$mot_de_passe = password_hash($this->input->post('mot_de_passe'), PASSWORD_BCRYPT);
-			//$mot_de_passe_confirm = password_hash($this->input->post('mot_de_passe_confirm'), PASSWORD_BCRYPT);
-			$adresse_postale = $this->input->post('adresse_postale');
-			$code_postal = $this->input->post('code_postal');
-			$ville = $this->input->post('ville');
-			$adresse_ip = $this->input->ip_address();
+			$nom = $this->input->post('NOM');
+			$prenom = $this->input->post('PRENOM');
+			$adresse_postale = $this->input->post('ADRESSE_POSTALE');
+			$code_postal = $this->input->post('CODE_POSTAL');
+			$ville = $this->input->post('VILLE');
+			$adresse_email = $this->input->post('ADRESSE_EMAIL');
+			$numero_de_telephone = $this->input->post('NUMERO_DE_TELEPHONE');
+			$adresse_ip_derniere_connexion = $this->input->ip_address();
+			$mot_de_passe = password_hash($this->input->post('MOT_DE_PASSE'), PASSWORD_BCRYPT);
+			$role = $this->input->post('ROLE');
 			$token_id = md5(microtime(TRUE)*100000);
 			
-			$this->load->library("email_templates");
+			$utilisateurCourant = $this->session->userdata("utilisateurCourant");
+			
 			
 			// L'utilisateur à été ajouté en BDD
-			if($this->utilisateurs_model->ajouter_utilisateur($nom, $prenom, $adresse_email, $mot_de_passe, $adresse_postale, $code_postal, $ville, $token_id) == TRUE){
+			if($utilisateurCourant->inscrire($nom, $prenom, $adresse_postale, $code_postal, $ville, $adresse_email, $numero_de_telephone, $adresse_ip_derniere_connexion, $mot_de_passe, $role, $token_id) == TRUE){
+				
+				$this->load->library("email_templates");
+				
 				$message = '
 					Vous vous êtes inscrit sur notre site internet et nous vous en remercions. Pour valider votre inscription, merci de cliquer sur <a href="'.base_url().'/utilisateurs/confirmation/adresse_email='.$adresse_email.'&token_id='.$token_id.'">ce lien</a>.<br />
 					A bientôt sur undershift.fr !<br/>
@@ -190,21 +193,25 @@ class Utilisateurs extends CI_Controller {
 		if($this->utilisateur->activer_compte($adresse_email, $token_id) === TRUE){
 			
 			// Définition du message de confirmation et du statut
-			$data["message"] = "Votre compte ".$adresse_email." à été activé ! Vous pouvez dès à présent vous connecter au site sur <a href='".base_url()."utilisateurs/connexion'>cette page</a>";
-			$data["statut"] = "green";
+			$message = "Votre compte ".$adresse_email." à été activé ! Vous pouvez dès à présent vous connecter au site sur <a href='".base_url()."utilisateurs/connexion'>cette page</a>";
+			$statut = "green";
+			
+			$this->layout->set_flashdata_message($statut, $message);
 			
 			// Affichage de la vue
-			$this->layout->view("utilisateurs/confirmation", $data);
+			redirect("accueil/index");
 			
 		// Le compte à déjà été activé ou n'existe pas
 		} else {
 			
 			// Définition du message d'erreur et du statut
-			$data["message"] = "Votre compte n'a pas été activé. Cela peut-être dû au fait que le compte n'existe pas ou à déjà été validé.";
-			$data["statut"] = "red";
+			$message = "Votre compte n'a pas été activé. Cela peut-être dû au fait que le compte n'existe pas ou à déjà été validé.";
+			$statut = "red";
+			
+			$this->layout->set_flashdata_message($statut, $message);
 			
 			// Affichage de la vue
-			$this->layout->view("utilisateurs/confirmation", $data);
+			redirect("accueil/index");
 		}
 	}
 	

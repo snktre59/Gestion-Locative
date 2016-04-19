@@ -55,16 +55,46 @@
         
         <div class="row" id="left-sidebar-row">
 
-            <div id="left-navbar" class="col s2"> <!-- Note that "m4 l3" was added -->
+            <div id="left-navbar" class="col s2"style="overflow:auto"> <!-- Note that "m4 l3" was added -->
                 <ul>
                     <li class="waves-effect waves-light"><a href="<?php echo base_url(); ?>"><span><i class="material-icons left">store</i><span>Accueil</a></li>
                     <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">work</i>Espace Propriétaire</a></li>
                     <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i>Espace Locataire</a></li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url(); ?>"><span><i class="material-icons left">store</i><span>Accueil</a></li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">work</i>Espace Propriétaire</a></li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i>Espace Locataire</a></li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url(); ?>"><span><i class="material-icons left">store</i><span>Accueil</a></li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">work</i>Espace Propriétaire</a></li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i>Espace Locataire</a></li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url(); ?>"><span><i class="material-icons left">store</i><span>Accueil</a></li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">work</i>Espace Propriétaire</a></li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i>Espace Locataire</a></li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url(); ?>"><span><i class="material-icons left">store</i><span>Accueil</a></li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">work</i>Espace Propriétaire</a></li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i>Espace Locataire</a></li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url(); ?>"><span><i class="material-icons left">store</i><span>Accueil</a></li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">work</i>Espace Propriétaire</a></li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i>Espace Locataire</a></li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url(); ?>"><span><i class="material-icons left">store</i><span>Accueil</a></li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">work</i>Espace Propriétaire</a></li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i>Espace Locataire</a></li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url(); ?>"><span><i class="material-icons left">store</i><span>Accueil</a></li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">work</i>Espace Propriétaire</a></li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i>Espace Locataire</a></li>
+                    
                 </ul>
             </div>
             
             <div class="col s10" id="main-container"> <!-- Note that "m8 l9" was added -->
-                    <?php echo $output; ?>
+                <?php foreach($tabFlashMessage as $flashDataMessage): ?>
+                    <div id="card-alert" class="card <?php echo $flashDataMessage["statut"]; ?>">
+                      <div class="card-content white-text">
+                        <p><i class="material-icons left"><?php echo $flashDataMessage["logo"]; ?></i> <?php echo $flashDataMessage["message"]; ?></p>
+                      </div>
+                    </div>
+                <?php endforeach; ?>
+                
+                <?php echo $output; ?>
             </div>
         </div>
         

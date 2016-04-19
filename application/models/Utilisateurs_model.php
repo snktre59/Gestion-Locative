@@ -9,19 +9,9 @@
 		 * Ajoute un utilisateur en base de données
 		 * Retour : TRUE si une ligne à été affectée ou FALSE
 		 */
-		public function ajouter_utilisateur($nom, $prenom, $adresse_email, $mot_de_passe, $adresse_postale, $code_postal, $ville, $token_id)
+		public function ajouter_utilisateur($data)
 		{
-			$this->db->set("nom", $nom);
-			$this->db->set("prenom", $prenom);
-			$this->db->set("adresse_email", $adresse_email);
-			$this->db->set("mot_de_passe", $mot_de_passe);
-			$this->db->set("adresse_postale", $adresse_postale);
-			$this->db->set("code_postal", $code_postal);
-			$this->db->set("ville", $ville);
-			$this->db->set("statut_compte", "INACTIF");
-			$this->db->set("token_id", $token_id);
-			
-			$this->db->insert($this->table);
+			$this->db->insert($this->table, $data);
 			
 			return ($this->db->affected_rows() != 1) ? FALSE : TRUE;
 		}
