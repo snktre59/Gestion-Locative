@@ -60,27 +60,6 @@
                     <li class="waves-effect waves-light"><a href="<?php echo base_url(); ?>"><span><i class="material-icons left">store</i><span>Accueil</a></li>
                     <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">work</i>Espace Propriétaire</a></li>
                     <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i>Espace Locataire</a></li>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url(); ?>"><span><i class="material-icons left">store</i><span>Accueil</a></li>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">work</i>Espace Propriétaire</a></li>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i>Espace Locataire</a></li>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url(); ?>"><span><i class="material-icons left">store</i><span>Accueil</a></li>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">work</i>Espace Propriétaire</a></li>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i>Espace Locataire</a></li>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url(); ?>"><span><i class="material-icons left">store</i><span>Accueil</a></li>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">work</i>Espace Propriétaire</a></li>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i>Espace Locataire</a></li>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url(); ?>"><span><i class="material-icons left">store</i><span>Accueil</a></li>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">work</i>Espace Propriétaire</a></li>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i>Espace Locataire</a></li>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url(); ?>"><span><i class="material-icons left">store</i><span>Accueil</a></li>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">work</i>Espace Propriétaire</a></li>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i>Espace Locataire</a></li>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url(); ?>"><span><i class="material-icons left">store</i><span>Accueil</a></li>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">work</i>Espace Propriétaire</a></li>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i>Espace Locataire</a></li>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url(); ?>"><span><i class="material-icons left">store</i><span>Accueil</a></li>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">work</i>Espace Propriétaire</a></li>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i>Espace Locataire</a></li>
                     
                 </ul>
             </div>
