@@ -40,44 +40,56 @@
   <!-- End Page Loading -->
   <div id="login-page" class="row">
     <div class="col s12 z-depth-4 card-panel">
-      <form class="login-form">
+      <?php $attributs = array('id' => 'FORMULAIRE_CONNEXION', 'class' => 'login-form'); ?>
+        <?php echo form_open("", $attributs); ?>
         <div class="row">
           <div class="input-field col s12 center">
-            <img src="<?php echo img_url("logo.png"); ?>" alt="" class="circle responsive-img valign profile-image-login">
+            <img src="<?php echo img_url("logo.png"); ?>" alt="" class="responsive-img valign profile-image-login">
             <p class="center login-form-text">Connexion à votre espace</p>
           </div>
         </div>
+        
+        <?php foreach($tabFlashMessage as $flashDataMessage): ?>
+            <div id="card-alert" class="card <?php echo $flashDataMessage["statut"]; ?>">
+              <div class="card-content white-text">
+                <p><i class="material-icons left"><?php echo $flashDataMessage["logo"]; ?></i> <?php echo $flashDataMessage["message"]; ?></p>
+              </div>
+            </div>
+        <?php endforeach; ?>
+        
         <div class="row margin">
           <div class="input-field col s12">
             <i class="material-icons prefix">perm_identity</i>
-            <input id="username" type="text">
-            <label for="username" class="center-align">Adresse email</label>
+            <input id="ADRESSE_EMAIL" type="text" name="ADRESSE_EMAIL" value="<?php echo set_value('ADRESSE_EMAIL'); ?>">
+            <label for="ADRESSE_EMAIL" class="center-align">Adresse email</label>
           </div>
         </div>
+        <?php echo form_error('ADRESSE_EMAIL'); ?>
         <div class="row margin">
           <div class="input-field col s12">
             <i class="material-icons prefix">lock_outline</i>
-            <input id="password" type="password">
-            <label for="password">Mot de passe</label>
+            <input id="MOT_DE_PASSE" name="MOT_DE_PASSE" type="password" value="<?php echo set_value('MOT_DE_PASSE'); ?>">
+            <label for="MOT_DE_PASSE">Mot de passe</label>
           </div>
         </div>
+        <?php echo form_error('MOT_DE_PASSE'); ?>
         <div class="row">          
           <div class="input-field col s12 m12 l12  login-text">
-              <input type="checkbox" id="remember-me">
+              <input type="checkbox" name="REMEMBER" id="remember-me">
               <label for="remember-me">Se souvenir de moi</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <a href="index.html" class="btn waves-effect waves-light col s12">Connexion</a>
+            <button class="btn waves-effect waves-light col s12" type="submit">Connexion</button>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s6 m6 l6">
-            <p class="margin medium-small"><a href="page-register.html">Inscrivez-vous !</a></p>
+            <p class="margin medium-small"><a href="<?php echo base_url("utilisateurs/inscription"); ?>">Inscrivez-vous !</a></p>
           </div>
           <div class="input-field col s6 m6 l6">
-              <p class="margin right-align medium-small"><a href="page-forgot-password.html">Mot de passe oublié ?</a></p>
+              <p class="margin right-align medium-small"><a href="<?php echo base_url("utilisateurs/forgot"); ?>">Mot de passe oublié ?</a></p>
           </div>          
         </div>
 

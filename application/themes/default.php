@@ -39,14 +39,50 @@
             <div class="nav-wrapper">
                 <a href="<?php echo base_url(); ?>" class="brand-logo">Loca'Gestion</a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="<?php echo base_url(); ?>"><i class="material-icons left">store</i>Accueil</a></li>
-                    <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">work</i>Espace Propriétaire</a></li>
-                    <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i>Espace Locataire</a></li>
+                    <?php if(!$utilisateurCourant->estAuthentifie()): ?>
+                        <li><a href="<?php echo base_url(); ?>"><i class="material-icons left">store</i>Accueil</a></li>
+                        <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">work</i>Espace Propriétaire</a></li>
+                        <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i>Espace Locataire</a></li>
+                    <?php else: ?>
+                        <li><a href="sass.html"><i class="material-icons left">store</i>Accueil</a></li>
+                        <li><a class='dropdown NOTIFICATIONS' data-beloworigin="true" href='#' data-activates='notifications-dropdown'><i class="material-icons">notifications</i></a></li>
+                            
+                            <ul id="notifications-dropdown" class="dropdown-content" style="white-space: nowrap; position: absolute; top: 128px; left: 1372px; opacity: 1; display: none;">
+                                <li>
+                                    <h5>NOTIFICATIONS <span class="new badge orange">5</span></h5>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="#!"><i class="mdi-action-add-shopping-cart"></i> A new order has been placed!</a>
+                                    <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">2 hours ago</time>
+                                </li>
+                                <li>
+                                    <a href="#!"><i class="material-icons left">work</i> Completed the task</a>
+                                    <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">3 days ago</time>
+                                </li>
+                                <li>
+                                    <a href="#!"><i class="mdi-action-settings"></i> Settings updated</a>
+                                    <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">4 days ago</time>
+                                </li>
+                                <li>
+                                    <a href="#!"><i class="mdi-editor-insert-invitation"></i> Director meeting started</a>
+                                    <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">6 days ago</time>
+                                </li>
+                                <li>
+                                    <a href="#!"><i class="mdi-action-trending-up"></i> Generate monthly report</a>
+                                    <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">1 week ago</time>
+                                </li>
+                            </ul>
+                        <li><a href="<?php echo base_url("utilisateurs/deconnexion"); ?>"><i class="material-icons">power_settings_new</i></a></li>
+                    <?php endif; ?>
                 </ul>
                 <ul id="slide-out" class="side-nav">
-                    <li><a href="sass.html"><i class="material-icons left">store</i>Accueil</a></li>
-                    <li><a href="badges.html"><i class="material-icons left">work</i>Espace Propriétaire</a></li>
-                    <li><a href="collapsible.html"><i class="material-icons left">vpn_key</i>Espace Locataire</a></li>
+                    <?php if(!$utilisateurCourant->estAuthentifie()): ?>
+                        <li><a href="<?php echo base_url(); ?>"><i class="material-icons left">store</i>Accueil</a></li>
+                        <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">work</i>Espace Propriétaire</a></li>
+                        <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i>Espace Locataire</a></li>
+                    <?php else: ?>
+                    <?php endif; ?>
                 </ul>
                 <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons left">reorder</i></a>
             </div>
@@ -57,10 +93,42 @@
 
             <div id="left-navbar" class="col s2"style="overflow:auto"> <!-- Note that "m4 l3" was added -->
                 <ul>
+                    <?php if(!$utilisateurCourant->estAuthentifie()): ?>
                     <li class="waves-effect waves-light"><a href="<?php echo base_url(); ?>"><span><i class="material-icons left">store</i><span>Accueil</a></li>
                     <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">work</i>Espace Propriétaire</a></li>
                     <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i>Espace Locataire</a></li>
-                    
+                    <?php else: ?>
+                    <li class="user-details cyan darken-2" style="height: 97px!important;">
+                        <div class="row">
+                            <div class="col col s4 m4 l4">
+                                <img src="<?php echo img_url("avatar.jpg"); ?>" alt="" class="circle responsive-img valign profile-image">
+                            </div>
+                            <div class="col col s8 m8 l8">
+                                
+                                <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" id="name-left" href="#" data-activates="profile-dropdown"><i class="material-icons left">arrow_drop_down</i><?php echo $utilisateurCourant->getPrenom()." ".$utilisateurCourant->getNom(); ?></a>
+                                <ul id="profile-dropdown" class="dropdown-content" style="width: 127px; position: absolute; top: 57px; left: 101.234375px; opacity: 1; display: none;">
+                                    <li><a href="#"><i class="material-icons">account_circle</i> Mon profil</a>
+                                    </li>
+                                    <li><a href="#"><i class="material-icons">settings</i> Paramètres</a>
+                                    </li>
+                                    <li><a href="#"><i class="material-icons">help</i> Aide</a>
+                                    </li>
+                                    <li><a href="<?php echo base_url("utilisateurs/deconnexion"); ?>"><i class="material-icons">power_settings_new</i> Déconnexion</a>
+                                    </li>
+                                </ul>
+                                <p class="user-roal"><?php echo $utilisateurCourant->getRole(); ?></p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url(); ?>"><span><i class="material-icons left">trending_down</i><span>Tableau de bord</a></li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">perm_identity</i> Locataires</a></li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">business</i> Locations</a></li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">work</i> Etat des lieux</a></li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">query_builder</i> Rendez-vous</a></li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i> Interventions</a></li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">textsms</i> Messages</a></li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i> Calculatrice</a></li>
+                    <?php endif; ?>
                 </ul>
             </div>
             

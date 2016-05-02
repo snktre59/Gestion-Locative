@@ -26,11 +26,11 @@
 		 */
 		public function activer_compte($adresse_email, $token_id){
 			$data = array(
-				"statut_compte" => "ACTIF"
+				"STATUT_COMPTE" => "ACTIF"
 			);
 			
-			$this->db->where('adresse_email', $adresse_email);
-			$this->db->where('token_id', $token_id);
+			$this->db->where('ADRESSE_EMAIL', $adresse_email);
+			$this->db->where('TOKEN_ID', $token_id);
 			$this->db->update($this->table, $data);
 			$rows = $this->db->affected_rows();
 			
@@ -53,14 +53,14 @@
 			if ($dataUser === FALSE) {
 				
 				// L'ID devient celui du visiteur
-				$dataUser["id_utilisateur"] = 1;
+				$dataUser["ID_UTILISATEUR"] = 1;
 			}
 			
 			// Chargement des librairies
-			$this->load->library("utilisateur", $dataUser["id_utilisateur"]);
+			$this->load->library("utilisateur", $dataUser["ID_UTILISATEUR"]);
 			
 			// Création d'un nouvel utilisateur
-			$utilisateur = new Utilisateur($dataUser["id_utilisateur"]);
+			$utilisateur = new Utilisateur($dataUser["ID_UTILISATEUR"]);
 			
 			return $utilisateur;
 		}

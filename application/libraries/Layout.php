@@ -23,13 +23,13 @@ class Layout
 	{
 		$this->CI =& get_instance();
 		
-		//if (! $this->CI->session->userdata("utilisateurCourant")){
+		if (! $this->CI->session->userdata("utilisateurCourant")){
 			$this->CI->load->model("utilisateurs_model");
 			
 			$this->utilisateurCourant = $this->CI->utilisateurs_model->instancier_utilisateur("visiteur");
 			
 			$this->CI->session->set_userdata("utilisateurCourant", $this->utilisateurCourant);
-		//}
+		}
 		
 		$this->utilisateurCourant = $this->CI->session->userdata("utilisateurCourant");
 		
@@ -97,7 +97,11 @@ class Layout
 	 */	
 	public function blank_view($name, $data = array())
 	{
-        array_push($data, $this->var);
+        //array_merge($data, $this->var);
+		foreach($this->var as $key => $value){
+			$data[$key] = $value;
+		}
+		
 		$this->CI->load->view($name, $data);
 	}
 	

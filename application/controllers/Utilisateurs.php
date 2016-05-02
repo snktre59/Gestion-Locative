@@ -14,15 +14,15 @@ class Utilisateurs extends CI_Controller {
 		$this->layout->ajouter_js('utilisateurs/connexion');
 	 
 	 	// Définition des règles de champs
-		$this->form_validation->set_rules('adresse_email', '"Adresse Email"', 'trim|required|encode_php_tags');
-		$this->form_validation->set_rules('mot_de_passe', '"Mot de passe"', 'trim|required|encode_php_tags');
+		$this->form_validation->set_rules('ADRESSE_EMAIL', '"Adresse Email"', 'trim|required|valid_email|encode_php_tags');
+		$this->form_validation->set_rules('MOT_DE_PASSE', '"Mot de passe"', 'trim|required|encode_php_tags');
 	
 		if ($this->form_validation->run())
 		{
 			// Récupération des variables postées
-			$adresse_email = $this->input->post('adresse_email');
-			$mot_de_passe = $this->input->post('mot_de_passe');
-			$remember = $this->input->post('remember');
+			$adresse_email = $this->input->post('ADRESSE_EMAIL');
+			$mot_de_passe = $this->input->post('MOT_DE_PASSE');
+			$remember = $this->input->post('REMEMBER');
 			
 			// Récupération des informations du compte utilisateur
 			$userData = $this->utilisateurs_model->getDataUtilisateurByEmail($adresse_email);
@@ -40,7 +40,7 @@ class Utilisateurs extends CI_Controller {
 			} else {
 				
 				// Le compte existe mais n'est pas activé
-				if ($userData["statut_compte"] != "ACTIF") {
+				if ($userData["STATUT_COMPTE"] != "ACTIF") {
 					
 					// Ajout d'un message d'erreur
 					$this->layout->set_flashdata_message("red", "Le compte auquel vous souhaitez vous connecter n'est pas activé. Pour l'activer, cliquez sur le mail que vous avez reçu lors de votre inscription puis reconnectez vous.");
@@ -50,7 +50,7 @@ class Utilisateurs extends CI_Controller {
 				}
 				
 				// Le compte existe et les mots de passe correspondent
-				else if (password_verify($mot_de_passe, $userData["mot_de_passe"])) {
+				else if (password_verify($mot_de_passe, $userData["MOT_DE_PASSE"])) {
 					
 					// Instanciation d'un nouvel utilisateur avec ses informations
 					$utilisateur = $this->utilisateurs_model->instancier_utilisateur($adresse_email);
@@ -85,7 +85,8 @@ class Utilisateurs extends CI_Controller {
 		}
 		else
 		{
-			$this->load->view('utilisateurs/connexion');
+			$data["toto"] = "TOTO";
+			$this->layout->blank_view('utilisateurs/connexion', $data);
 		}
 	}
 

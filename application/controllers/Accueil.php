@@ -9,6 +9,8 @@ class Accueil extends CI_Controller
 		$this->load->model("evenements_model");
 		$this->load->model("actualites_model");
 		
+		$this->layout->ajouter_js("accueil/accueil");
+		
 		// Chargement des helpers
 		$this->load->helper('date');
 		

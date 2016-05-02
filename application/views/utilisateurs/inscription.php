@@ -127,7 +127,7 @@
                 <i class="material-icons prefix">store</i>
             </div>
             <div class="input-field col s5">
-                <input id="ADRESSE_POSTALE" name="ADRESSE_POSTALE" type="text" value="<?php echo set_value('ADRESSE'); ?>">
+                <input id="ADRESSE_POSTALE" name="ADRESSE_POSTALE" type="text" value="<?php echo set_value('ADRESSE_POSTALE'); ?>">
                 <label for="ADRESSE_POSTALE">Adresse</label>
             </div>
             <div class="input-field col s3">
@@ -139,7 +139,7 @@
                 <label for="CODE_POSTAL">Code Postal</label>
             </div>
         </div>
-        <?php echo form_error('ADRESSE')." ".form_error('VILLE')." ".form_error('CODE_POSTAL'); ?>
+        <?php echo form_error('ADRESSE_POSTALE')." ".form_error('VILLE')." ".form_error('CODE_POSTAL'); ?>
         <div class="row">
           <div class="input-field col s12">
             <button type="submit" class="btn waves-effect waves-light col s12">Inscription</button>
