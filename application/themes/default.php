@@ -82,6 +82,14 @@
                         <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">work</i>Espace Propriétaire</a></li>
                         <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i>Espace Locataire</a></li>
                     <?php else: ?>
+                        <li><a href="<?php echo base_url("tableau_de_bord"); ?>"><span><i class="material-icons left">trending_down</i><span>Tableau de bord</a></li>
+                        <li><a href="<?php echo base_url()."locataires"; ?>"><i class="material-icons left">perm_identity</i> Locataires</a></li>
+                        <li><a href="<?php echo base_url()."locations"; ?>"><i class="material-icons left">business</i> Locations</a></li>
+                        <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">work</i> Etat des lieux</a></li>
+                        <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">query_builder</i> Rendez-vous</a></li>
+                        <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i> Interventions</a></li>
+                        <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">textsms</i> Messages</a></li>
+                        <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i> Calculatrice</a></li>
                     <?php endif; ?>
                 </ul>
                 <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons left">reorder</i></a>
@@ -120,9 +128,9 @@
                             </div>
                         </div>
                     </li>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url(); ?>"><span><i class="material-icons left">trending_down</i><span>Tableau de bord</a></li>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">perm_identity</i> Locataires</a></li>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">business</i> Locations</a></li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url("tableau_de_bord"); ?>"><span><i class="material-icons left">trending_down</i><span>Tableau de bord</a></li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."locataires"; ?>"><i class="material-icons left">perm_identity</i> Locataires</a></li>
+                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."locations"; ?>"><i class="material-icons left">business</i> Locations</a></li>
                     <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">work</i> Etat des lieux</a></li>
                     <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">query_builder</i> Rendez-vous</a></li>
                     <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i> Interventions</a></li>
@@ -140,8 +148,19 @@
                       </div>
                     </div>
                 <?php endforeach; ?>
-                
                 <?php echo $output; ?>
+                
+                <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+                    <a class="btn-floating btn-large red">
+                    <i class="large material-icons">mode_edit</i>
+                    </a>
+                    <ul>
+                    <li><a class="btn-floating red tooltipped" data-position="left" data-delay="50" data-tooltip="Tableau de bord"><i class="material-icons">insert_chart</i></a></li>
+                    <li><a class="btn-floating yellow darken-1 tooltipped" data-position="left" data-delay="50" data-tooltip="Messages"><i class="material-icons">question_answer</i></a></li>
+                    <li><a class="btn-floating green tooltipped" data-position="left" data-delay="50" data-tooltip="Rendez-vous"><i class="material-icons">today</i></a></li>
+                    <li><a class="btn-floating blue tooltipped" data-position="left" data-delay="50" data-tooltip="Mes locataires"><i class="material-icons">group</i></a></li>
+                    </ul>
+                </div>
             </div>
         </div>
         

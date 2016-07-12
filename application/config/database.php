@@ -61,7 +61,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $active_group = 'default';
 $query_builder = TRUE;
-/* PROD */
+/* PROD *//*
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => '91.121.109.27',
@@ -84,7 +84,7 @@ $db['default'] = array(
 	'save_queries' => TRUE
 );
 
-/* DEV 
+*/
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
@@ -105,4 +105,4 @@ $db['default'] = array(
 	'stricton' => FALSE,
 	'failover' => array(),
 	'save_queries' => TRUE
-); */
+); 

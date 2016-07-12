@@ -5,8 +5,7 @@ $(".NOTIFICATIONS").dropdown({
   constrain_width:!1,
   hover:!0,
   gutter:0,
-  belowOrigin:!0,
-  alignment:"left"
+  belowOrigin:1
 })
 
 $('.profile-btn').dropdown({
@@ -20,3 +19,5 @@ $('.profile-btn').dropdown({
   );
   
   $("#profile-dropdown").css("width", "168px");
+  
+  $('.fixed-action-btn').openFAB();

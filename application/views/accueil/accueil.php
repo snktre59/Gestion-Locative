@@ -16,7 +16,6 @@
         </div>
     </div>
     <div class="col s12 m6">
-        <h4 class="light">Petite</h4>
         <div class="card medium hoverable">
             <div class="card-image">
                 <img src="<?php echo img_url('accueil1.jpg'); ?>">

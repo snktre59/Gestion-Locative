@@ -89,6 +89,7 @@ select {
 #profile-dropdown {
     overflow: hidden;
     width: 168px;
+    margin-top: 35px!important;
 }
 
 #profile-dropdown.dropdown-content li>a, #profile-dropdown.dropdown-content li>span{
@@ -96,7 +97,8 @@ select {
 }
 
 #name-left {
-    margin-left: -59px;
+    margin-left: 0px;
+    padding-left: 0;
 }
 #name-left i {
     line-height: 34px!important;
@@ -626,10 +628,10 @@ nav ul li.no-hover:hover {
     background: none
 }
 
-.side-nav a {
+/*.side-nav a {
     line-height: 42px;
     height: 42px
-}
+}*/
 
 .side-nav.leftside-navigation .collapsible-body li.active {
     background-color: rgba(0, 0, 0, 0.04)
@@ -708,6 +710,7 @@ ul.side-nav .collapsible-header {
     margin: 0
 }
 
+/*
 #slide-out li a i {
     line-height: inherit;
     width: 2rem;
@@ -716,7 +719,7 @@ ul.side-nav .collapsible-header {
     float: left;
     text-align: center;
     margin-right: 1rem
-}
+}*/
 
 #slide-out ul.side-nav li {
     padding: 0 !important

@@ -79,6 +79,7 @@ class Layout
 			// Ajout des ressources JAVASCRIPT
 			$this->ajouter_js("jquery-2.1.1.min");
             $this->ajouter_js("materialize.min");
+			$this->ajouter_js("accueil/accueil");
 		}
 	}
 	
@@ -87,6 +88,7 @@ class Layout
 	 */	
 	public function view($name, $data = array())
 	{
+		$data["utilisateurCourant"] = $this->utilisateurCourant;
 		$this->var['output'] .= $this->CI->load->view($name, $data, true);
 		
 		$this->CI->load->view('../themes/' . $this->theme, $this->var);
