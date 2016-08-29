@@ -9,7 +9,15 @@ class Locations extends CI_Controller
             
         $this->layout->ajouter_css('locations/locations');
         
+        $this->layout->ajouter_css('datatables-1.10.12/dataTables.material.min');
+        
+        $this->layout->ajouter_css('datatables-1.10.12/material.min');
+        
         $this->layout->ajouter_js('global');
+        
+        $this->layout->ajouter_js('datatable-1.10.12/datatables-1.10.12.min');
+        
+        $this->layout->ajouter_js('datatable-1.10.12/dataTables.material.min');
         
         $this->layout->ajouter_js('locations/accueil');
             
@@ -18,6 +26,15 @@ class Locations extends CI_Controller
         $idProprietaire = $this->session->userdata("utilisateurCourant")->getId();
         
         $listeLocations = $this->locations_model->getLocationsByIdProprietaire($idProprietaire);
+
+        $listeAppartements = array();
+
+        foreach($listeLocations as $location){
+        	
+            //array_merge($listeAppartements, $this->locations_model->getAppartementsByIdLocation($location->ID_LOCATION));
+            array_push($listeAppartements, $this->locations_model->getAppartementsByIdLocation($location->ID_LOCATION));
+        }
+        //$listeAppartements = $this->locations_model->getAppartementsByIdLocation(1);
             
         // Définition du titre de la page
 		$this->layout->set_titre("Loca'Gestion - Mes locations");
@@ -27,6 +44,8 @@ class Locations extends CI_Controller
 		
         // Assignation des variables
         $data['listeLocations'] = $listeLocations;
+        
+        $data['listeAppartements'] = $listeAppartements[0];
         
 		// Affichage du template
 		$this->layout->view('locations/accueil', $data);
@@ -53,6 +72,19 @@ class Locations extends CI_Controller
         
         $retour = $this->locations_model->ajouterMaison($data);
         
+    }
+
+    public function ajouterAppartement(){
+        $idLocation = $this->input->post('idLocation');
+        $numero = $this->input->post('numero');
+        
+        $this->load->model('locations_model');
+        
+        $data = array("ID_APPARTEMENT" => '',
+               		 "FK_ID_LOCATION" => $idLocation,
+	        		 "NUMERO" => $numero);
+        
+        $retour = $this->locations_model->ajouterAppartement($data);
     }
     
     public function clean($string) {

@@ -14,16 +14,23 @@
                             ->result();
         }
         
-        public function getAppartementsByIdProprietaire($idLocation){
+        public function getAppartementsByIdLocation($idLocation){
+        
             return $this->db->select("*")
                             ->from($this->table_appartements)
-                            ->where('FK_ID_LOCATIONS', $idLocation)
+                            ->where('FK_ID_LOCATION', (int)$idLocation)
                             ->get()
                             ->result();
         }
         
         public function ajouterMaison($data){
 	        $this->db->insert($this->table_locations, $data);
+	        
+	        return $this->db->affected_rows();
+        }
+
+        public function ajouterAppartement($data){
+	        $this->db->insert($this->table_appartements, $data);
 	        
 	        return $this->db->affected_rows();
         }

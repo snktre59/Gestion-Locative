@@ -1,18 +1,67 @@
-<div id="liens">
+<h2 class="header orange-text text-lighten-1" style="display: inline">Locations</h2>
+
+<div id="liens" style="display: inline">
     <a data-target="modal1" class="waves-effect waves-light modal-trigger btn orange lighten-2"><i class="material-icons left">business</i>Ajouter</a>
-</div><br /><br />
+</div><br /><br /><br />
 
 <div class="row">
     <div class="col s12">
         <ul class="tabs">
         <?php foreach($listeLocations as $location): ?>
-            <li class="tab col s3"><a href="#<?php echo $location->NOM_COURT; ?>"><?php echo $location->LIBELLE; ?></a></li>
+            <li class="tab col s3"><a href="#<?php echo $location->ID_LOCATION.''.$location->NOM_COURT; ?>"><?php echo $location->LIBELLE; ?></a></li>
         <?php endforeach; ?>
         </ul>
     </div>
+
+    <?php $i=0; ?>
     <?php foreach($listeLocations as $location): ?>
-    	<div id="<?php echo $location->NOM_COURT; ?>" class="col s12"><?php echo $location->ADRESSE; ?></div>
+        
+    	<div id="<?php echo $location->ID_LOCATION.''.$location->NOM_COURT; ?>" class="col s12">
+
+        <br />
+            <div class="row">
+                <div class="col s12 m4 l2"><p></p></div>
+                <div class="col s12 m4 l8">
+                    <p>
+                        <div id="card-alert" class="card orange darken-4">
+                            <div class="card-content white-text">
+                                <p style="text-align: center">
+                                    Adresse : <?php echo $location->ADRESSE." ".$location->CODE_POSTAL." ".$location->VILLE ; ?>
+                                </p>
+                            </div>
+                        </div>
+                    </p>
+                </div>
+                <div class="col s12 m4 l2"><p></p></div>
+            </div><br />
+            <?php if (isset($listeAppartements[$i])) : ?>
+            <h3 class="header orange-text text-lighten-1" style="display: inline">Liste des appartements</h3>
+    		
+    		<table style="width:100%" id="TABLE_APPARTEMENTS">
+	    		<thead>
+					<tr>
+				    	<th>ID</th>
+						<th>Numéro de l'appartement</th>
+					</tr>
+	    		</thead>
+	    		<tbody>
+				    <tr>
+				    	<?php foreach($listeAppartements as $appartement): ?>
+					    	<?php if($appartement->FK_ID_LOCATION == $location->ID_LOCATION): ?>
+						    	<td><?php echo $appartement->FK_ID_LOCATION; ?></td>
+						    	<td><?php echo $appartement->NUMERO; ?></td>
+						    <?php endif; ?>
+						<?php endforeach; ?>
+					</tr>
+	    		</tbody>
+			</table>
+            <?php endif; ?>
+    		<?php $i++; ?>
+    	</div>
 	<?php endforeach; ?>
+	
+	
+
 </div>
 
 
@@ -77,7 +126,7 @@
 	                            <select id="maisonAppartement">
 	                                <option value="" disabled selected>Choisir une option...</option>
 	                                <?php foreach($listeLocations as $location): ?>
-	                                <option value="<?php echo $location->NOM_COURT; ?>"><?php echo $location->LIBELLE; ?></option>
+	                                	<option value="<?php echo $location->ID_LOCATION; ?>"><?php echo $location->LIBELLE; ?></option>
 	                                <?php endforeach; ?>
 	                            </select>
 	                            <label for="nom">Sélectionnez le bien auquel il appartient :  </label>
